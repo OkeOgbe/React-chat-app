@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
+:root {
+    --default_font: 'Lato', sans-serif;
+    --default_blue: #2F5ABB;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    font-family: var(--default_font);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section__head{
+    font-size: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.section__head--small{
+    font-size: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.section__text{
+    font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section__text--small {
+    font-size: 14px;
+}
+
+
+.text_color{
+    color: var(--default_blue);
+}
+
+.v_align{
+    text-align: center;
+}
+
+.default_btn{
+    background: var(--default_blue);
+    color: #fff;
+    border: none;
+    padding: 0.6em 2em;
+}
+
+.align{
+    display: flex;
+    align-items: center;
+}
+
+.flex_center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero_text_holder,
+.signup_form_holder,
+.hero_img_holder{
+    min-height: 90vh;
+}
+
+.form_element input{
+    	border: none;
+    	border-bottom: 2px solid #d3d3d3;
+    	width: 90%;
+    	padding: 0.6em;
+    	transition: all 0.45s ease-in-out;
+    	background: transparent;
+    	font-size: 17px;
+    	outline: none;
+}
+
+.form_element input:focus{
+    	border-bottom: 2px solid var(--default_blue);
+}
+
+
+.signup_form_holder .btn_holder{
+    margin: 0 auto;
+    width: fit-content;
+    min-width: -moz-fit-content;
+    overflow: visible;
+}
+
+@media screen and (max-width: 776px){
+   .hero_text_holder,
+   .signup_form_holder {
+       min-height: 60vh;
+   }
+
+   .hero_img_holder {
+       min-height: 30vh;
+   }
 }
