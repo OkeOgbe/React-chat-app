@@ -11,8 +11,7 @@ export class Login extends Component {
         password:'',  
     }
 
-    
-    
+        
     handleChange= (e)=>{
         this.setState({
             [e.target.name]: e.target.value
@@ -52,7 +51,7 @@ export class Login extends Component {
                                     <form method="POST">
                                     
                                         <div className="form_element mt-2">
-                                            <input type="text" name="email" placeholder="Username" required onChange={this.handleChange}/>
+                                            <input type="text" name="email" placeholder="Email" required onChange={this.handleChange}/>
                                         </div>
                                     
                                         <div className="form_element mt-2">

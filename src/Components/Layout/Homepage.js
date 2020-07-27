@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link} from 'react-router-dom';
 import hero_img from "../../images/Group Chat-pana.svg";
+import animate from 'animate.css';
 
 const Homepage = () => {
     return (
@@ -10,7 +11,7 @@ const Homepage = () => {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="hero_text_holder align">
-                                <div className="hero_inner  animate__animated animate__fadeInUp">
+                                <div className="hero_inner  animate__animated animate__fadeInLeft">
                                     <h2 className="text_color section__head">Welcome to Howdy!</h2>
                                     <p className="section__text mt-3">Howdy is a lightweight chat app built to help
                                         you connect with other people around . To get started, signup by clicking the
@@ -22,7 +23,7 @@ const Homepage = () => {
                             </div>
                         </div>
                         <div className="col-md-6 order-1">
-                            < div className="hero_img_holder align  animate__animated animate__fadeInUp">
+                            < div className="hero_img_holder align  animate__animated animate__fadeInRight">
                                 <img src={hero_img} className="w-100" alt=""/>
                             </div>
                         </div>

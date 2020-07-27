@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link, NavLink , BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 import fire from '../../Config/firebaseConfig'
 
 
