@@ -6,8 +6,6 @@ import Login from "./Components/Layout/Login";
 import Homepage from './Components/Layout/Homepage';
 import './App.css';
 import fire from './Config/firebaseConfig';
-import {Provider} from 'react-redux';
-import store from './store';
 import HowdyApp from './Components/Layout/HowdyApp';
 
 export class App extends Component {
@@ -34,24 +32,22 @@ export class App extends Component {
 
     render() {
         return (
-            <Provider store={store}>
-                <Router> 
-          <div className="App">
-            <div className="container">
-              <Switch>
-                {/* {
-                  this.state.user? <HowdyApp/>: <Homepage/>
-                } */}
-                <Route path="/" exact component={Homepage}/>
-                <Route path='/signup' component={Signup}/>
-                <Route path='/login' component={Login}/>
-                <Route path="/app" exact component={HowdyApp}/>
-                
-              </Switch>
-            </div>
-          </div>
-      </Router>
-            </Provider>
+            <Router> 
+                <div className="App">
+                    <div className="container">
+                    <Switch>
+                        {/* {
+                        this.state.user? <HowdyApp/>: <Homepage/>
+                        } */}
+                        <Route path="/" exact component={Homepage}/>
+                        <Route path='/signup' component={Signup}/>
+                        <Route path='/login' component={Login}/>
+                        <Route path="/app" exact component={HowdyApp}/>
+                        
+                    </Switch>
+                    </div>
+                </div>
+            </Router>
         )
     }
 }
