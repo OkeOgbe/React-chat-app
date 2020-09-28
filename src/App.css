@@ -23,6 +23,9 @@ body{
     font-size: 14px;
 }
 
+.full_height{
+    min-height: 100vh;
+}
 
 .text_color{
     color: var(--default_blue);
@@ -50,6 +53,18 @@ body{
     justify-content: center;
 }
 
+.text_is_grey{
+    color: gray !important;
+}
+
+.text_is_bold{
+    font-weight: bold !important;
+}
+
+.text_is_white{
+    color: #fff !important;
+}
+
 .hero_text_holder,
 .signup_form_holder,
 .hero_img_holder{
@@ -58,7 +73,7 @@ body{
 
 .form_element input{
     	border: none;
-    	border-bottom: 2px solid #d3d3d3;
+    	border-bottom: 1px solid #d3d3d3;
     	width: 90%;
     	padding: 0.6em;
     	transition: all 0.45s ease-in-out;
@@ -68,7 +83,7 @@ body{
 }
 
 .form_element input:focus{
-    	border-bottom: 2px solid var(--default_blue);
+    	border-bottom: 1px solid var(--default_blue);
 }
 
 
@@ -78,6 +93,28 @@ body{
     min-width: -moz-fit-content;
     overflow: visible;
 }
+
+.forgot_form_inner{
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px 1px #7b7676b5;
+    min-height: 50vh;
+    padding: 1em 2em;
+}
+
+
+/***nav***/
+.nav{
+    background-color: var(--default_blue);
+    min-height: 8vh;
+    padding: 1em 0;
+}
+
+.logo{
+    float: left;
+}
+
+
 
 @media screen and (max-width: 776px){
    .hero_text_holder,

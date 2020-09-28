@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Signup from "./Components/Layout/Signup";
 import Login from "./Components/Layout/Login";
 import Homepage from './Components/Layout/Homepage';
+import forgotPassword  from "./Components/Layout/forgotPassword";
 import './App.css';
-import fire from './Config/firebaseConfig';
+import fire from './Redux/fbConfig/fbConfig';
 import HowdyApp from './Components/Layout/HowdyApp';
 
 export class App extends Component {
@@ -34,7 +35,7 @@ export class App extends Component {
         return (
             <Router> 
                 <div className="App">
-                    <div className="container">
+                    <div className="">
                     <Switch>
                         {/* {
                         this.state.user? <HowdyApp/>: <Homepage/>
@@ -43,7 +44,7 @@ export class App extends Component {
                         <Route path='/signup' component={Signup}/>
                         <Route path='/login' component={Login}/>
                         <Route path="/app" exact component={HowdyApp}/>
-                        
+                        <Route path="/forgotPassword" exact component={forgotPassword} />
                     </Switch>
                     </div>
                 </div>

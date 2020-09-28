@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom';
 import login_alt_img from "../../images/Mobile login-bro.svg";
-import fire from '../../Config/firebaseConfig'
+import fire from '../../Redux/fbConfig/fbConfig';
+import swal from "sweetalert";
 
 
 export class Login extends Component {
@@ -21,10 +22,18 @@ export class Login extends Component {
     handleSubmit= (e)=>{
         e.preventDefault();
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user)=>{
-            alert('signed in')
+            swal({
+                title: "Welcome Back",
+                text: "It's been a while, How you been?",
+                icon: "success"
+            })
             console.log(user)
         }).catch((e)=>{
-            alert("error signing in")
+             swal({
+                 title: "Sorry unfortunately you can't come inside",
+                 text: e.message,
+                 icon: "error"
+             })
         })
     }
 
@@ -36,7 +45,7 @@ export class Login extends Component {
         }
         
         return (
-            <div>
+            <div className="container">
                 <div className="hero">
                     <div className="row">
                         <div className="col-md-6">
@@ -64,6 +73,10 @@ export class Login extends Component {
                                     </form>
                                     <div className="v_align mt-2">
                                         <p className="section__text--small">Don't have an account? <Link to='/Signup' className="text_color">Signup Here</Link></p>
+                                    </div>
+
+                                      <div className="v_align mt-2">
+                                        <Link to='/forgotPassword' className="text_color ml-2">Forgot Password</Link>
                                     </div>
                                 </div>
                         </div>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom';
 import login_img from "../../images/Mobile login-pana.svg";
-import fire from '../../Config/firebaseConfig'
+import fire from '../../Redux/fbConfig/fbConfig';
+import swal from "sweetalert";
 
 
 export class Signup extends Component {
@@ -19,10 +20,18 @@ export class Signup extends Component {
             this.state.email,
             this.state.password
         ).then((user)=>{
-            alert('sign up successful')
+             swal({
+                 title: "Welcome to howdy",
+                 text: "Nice to have you around, May i take your coat",
+                 icon: "success"
+             })
             console.log(user)
         }).catch((err)=>{
-            alert('sign up failed')
+             swal({
+                 title: "Sorry We couldnt sign you up",
+                 text: err.message,
+                 icon: "error"
+             })
             console.log(err)
         })
     }
@@ -41,7 +50,7 @@ export class Signup extends Component {
         }
         
         return (
-            <div>
+            <div className="container">
                 <div className="hero">
                     <div className="row">
                         <div className="col-md-6">
@@ -72,8 +81,9 @@ export class Signup extends Component {
                                         </div>
                                     </form>
                                     <div className="v_align mt-2">
-                                        <p className="section__text--small">Already have an account? <Link to='/Login' className="text_color">Login Here</Link></p>
+                                        <p className="section__text--small">Already have an account? <Link to='/Login' className="text_color ml-2">Login Here</Link></p>
                                     </div>
+                                   
                                 </div>
                             </div>
                         </div>
