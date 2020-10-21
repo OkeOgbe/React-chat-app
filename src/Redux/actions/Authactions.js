@@ -1,13 +1,20 @@
 import {SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, FORGOT_PASSWORD} from './types';
 import swal from 'sweetalert';
 import fire from '../fbConfig/fbConfig';
+import {db} from '../fbConfig/fbConfig';
 
-export const createNewUser = (email, password) => dispatch => {
+export const createNewUser = (newUser) => dispatch => {
+    const {name, username, email, password} = newUser;
     fire
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then((user) => {
-            swal({title: "Welcome to Howdy", text: "May I take your coat goo sir?", icon: "success"})
+            db
+                .collection('users')
+                .add({uid: user.user.uid, name, username, email, password})
+        })
+        .then((user) => {
+            swal({title: "Welcome to Howdy", text: "May I take your coat?", icon: "success"})
         })
         .catch((err) => {
             swal({title: "Sorry Boss", text: err.message, icon: "error"})
@@ -41,3 +48,4 @@ export const forgotpass = (email) => dispatch => {
         });
     dispatch({type: FORGOT_PASSWORD, payload: email})
 }
+

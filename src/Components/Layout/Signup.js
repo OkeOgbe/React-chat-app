@@ -26,7 +26,8 @@ const Signup = (props) => {
         console.log(state);
 
         const {signup} = props;
-        signup(email, password);
+        const newUser = state;
+        signup(newUser);
 
         setState({
             ...state,
@@ -116,7 +117,7 @@ const Signup = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signup: (email, password) => dispatch(createNewUser(email, password))
+        signup: (newUser) => dispatch(createNewUser(newUser))
     }
 }
 

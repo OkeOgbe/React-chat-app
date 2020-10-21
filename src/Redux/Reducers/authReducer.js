@@ -1,6 +1,10 @@
-const initialState = {};
+import {GET_USERS} from "../actions/types";
 
-export default function (state = initialState, action) {
+const initialState = {
+    users: []
+};
+
+const authReducer = (state = initialState, action) => {
     switch (action.type) {
         default:
             return {
@@ -8,3 +12,5 @@ export default function (state = initialState, action) {
             }
     }
 }
+
+export default authReducer;
