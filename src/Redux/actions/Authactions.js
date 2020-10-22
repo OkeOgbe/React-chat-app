@@ -1,4 +1,4 @@
-import {SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, FORGOT_PASSWORD} from './types';
+import {SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, FORGOT_PASSWORD, GET_USERS} from './types';
 import swal from 'sweetalert';
 import fire from '../fbConfig/fbConfig';
 import {db} from '../fbConfig/fbConfig';
@@ -49,3 +49,17 @@ export const forgotpass = (email) => dispatch => {
     dispatch({type: FORGOT_PASSWORD, payload: email})
 }
 
+// export const getUsers = () => dispatch => {
+//     db
+//         .collection("users")
+//         .get()
+//         .then((querySnapshot) => {
+//             querySnapshot.forEach((doc) => {
+//                 console.log(doc.id, "=>", doc.data());
+//                //dispatch({type: GET_USERS, payload: doc.data()})
+//             });
+//         })
+//         .catch(function (error) {
+//             console.log("Error getting documents: ", error);
+//         });
+// }

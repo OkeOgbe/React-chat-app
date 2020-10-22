@@ -24,17 +24,10 @@ const HowdyApp = (props) => {
         return <Redirect to="/login"/>
     }
 
-    db
-        .collection("users")
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, "=>", doc.data());
-            });
-        })
-        .catch(function (error) {
-            console.log("Error getting documents: ", error);
-        });
+
+     const {Howdyusers} = props;
+     console.log(Howdyusers);
+
     return (
         <div>
             <Nav/>
@@ -47,4 +40,8 @@ const HowdyApp = (props) => {
     )
 }
 
-export default HowdyApp;
+const mapStateToProps = (state) => ({
+ Howdyusers: state.auth23.users
+})
+
+export default connect(mapStateToProps, null)(HowdyApp);
