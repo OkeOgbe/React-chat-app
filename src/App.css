@@ -3,19 +3,19 @@
     --default_blue: #2F5ABB;
 }
 
-body{
+body {
     font-family: var(--default_font);
 }
 
-.section__head{
+.section__head {
     font-size: 40px;
 }
 
-.section__head--small{
+.section__head--small {
     font-size: 30px;
 }
 
-.section__text{
+.section__text {
     font-size: 20px;
 }
 
@@ -23,78 +23,78 @@ body{
     font-size: 14px;
 }
 
-.full_height{
+.full_height {
     min-height: 100vh;
 }
 
-.text_color{
+.text_color {
     color: var(--default_blue);
 }
 
-.v_align{
+.v_align {
     text-align: center;
 }
 
-.default_btn{
+.default_btn {
     background: var(--default_blue);
     color: #fff;
     border: none;
     padding: 0.6em 2em;
 }
 
-.align{
+.align {
     display: flex;
     align-items: center;
 }
 
-.flex_center{
+.flex_center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.text_is_grey{
+.text_is_grey {
     color: gray !important;
 }
 
-.text_is_bold{
+.text_is_bold {
     font-weight: bold !important;
 }
 
-.text_is_white{
+.text_is_white {
     color: #fff !important;
 }
 
 .hero_text_holder,
 .signup_form_holder,
-.hero_img_holder{
+.hero_img_holder {
     min-height: 90vh;
 }
 
-.form_element input{
-    	border: none;
-    	border-bottom: 1px solid #d3d3d3;
-    	width: 90%;
-    	padding: 0.6em;
-    	transition: all 0.45s ease-in-out;
-    	background: transparent;
-    	font-size: 17px;
-    	outline: none;
+.form_element input {
+    border: none;
+    border-bottom: 1px solid #d3d3d3;
+    width: 75%;
+    padding: 0.6em;
+    transition: all 0.45s ease-in-out;
+    background: transparent;
+    font-size: 17px;
+    outline: none;
 }
 
-.form_element input:focus{
-    	border-bottom: 1px solid var(--default_blue);
+.form_element input:focus {
+    border-bottom: 1px solid var(--default_blue);
 }
 
 
-.signup_form_holder .btn_holder{
+.signup_form_holder .btn_holder {
     margin: 0 auto;
     width: fit-content;
     min-width: -moz-fit-content;
     overflow: visible;
 }
 
-.forgot_form_inner{
+.forgot_form_inner {
     width: 60%;
     border-radius: 20px;
     box-shadow: 1px 1px 3px 1px #7b7676b5;
@@ -102,27 +102,69 @@ body{
     padding: 1em 2em;
 }
 
+.input_holder {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+}
+
+.message_holder {
+    width: fit-content;
+    width: -moz-fit-content;
+}
+
+.message_holder_sender{
+    float: right;
+    margin-right: 30px;
+    width: 100%;
+}
+
+.message_content {
+    background: lightgray;
+    color: black;
+    padding: .3em 2em;
+    border-radius: 10px;
+    float: left;
+}
+
+.message_content_sender {
+    background: var(--default_blue);
+    color: #ffff;
+    padding: .3em 2em;
+    border-radius: 10px;
+    float: right;
+}
+
+.message_content_sender .section__text--small{
+    display: none;
+}
+
 
 /***nav***/
-.nav{
+.nav {
     background-color: var(--default_blue);
     min-height: 8vh;
     padding: 1em 0;
 }
 
-.logo{
+.logo {
     float: left;
 }
 
+.messages_holder {
+    height: 60vh;
+    overflow-y: scroll;
+}
 
 
-@media screen and (max-width: 776px){
-   .hero_text_holder,
-   .signup_form_holder {
-       min-height: 60vh;
-   }
+@media screen and (max-width: 776px) {
 
-   .hero_img_holder {
-       min-height: 30vh;
-   }
+    .hero_text_holder,
+    .signup_form_holder {
+        min-height: 60vh;
+    }
+
+    .hero_img_holder {
+        min-height: 30vh;
+    }
 }

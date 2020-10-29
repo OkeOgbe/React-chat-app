@@ -1,15 +1,15 @@
-import {GET_USERS} from "../actions/types";
+import {GET_MESSAGES} from "../actions/types";
 
 const initialState = {
-    users: []
+    messages: []
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_USERS:
+        case GET_MESSAGES:
             return{
                 ...state,
-                users: action.payload
+                messages: action.payload
             }
             break;
         default:

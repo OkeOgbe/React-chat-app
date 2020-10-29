@@ -1,4 +1,12 @@
-import {SIGNUP_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS, FORGOT_PASSWORD, GET_USERS} from './types';
+import {
+    SIGNUP_SUCCESS,
+    LOGIN_SUCCESS,
+    LOGOUT_SUCCESS,
+    FORGOT_PASSWORD,
+    GET_USERS,
+    SEND_MESSAGE,
+    GET_MESSAGES
+} from './types';
 import swal from 'sweetalert';
 import fire from '../fbConfig/fbConfig';
 import {db} from '../fbConfig/fbConfig';
@@ -49,17 +57,29 @@ export const forgotpass = (email) => dispatch => {
     dispatch({type: FORGOT_PASSWORD, payload: email})
 }
 
-// export const getUsers = () => dispatch => {
+export const sendMessage = (message) => dispatch => {
+    // Add a new document with a generated id.
+    db
+        .collection("cities")
+        .add(message)
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
+    dispatch({type: SEND_MESSAGE, payload: message})
+}
+
+//get messages from firestore
+// export const getMessage = () => dispatch => {
 //     db
-//         .collection("users")
+//         .collection("messages")
 //         .get()
 //         .then((querySnapshot) => {
-//             querySnapshot.forEach((doc) => {
-//                 console.log(doc.id, "=>", doc.data());
-//                //dispatch({type: GET_USERS, payload: doc.data()})
-//             });
+//             querySnapshot
+//                 .forEach(function (doc) {
+//                     dispatch({type: GET_MESSAGES, payload: doc.data().message})
+//                 });
 //         })
-//         .catch(function (error) {
-//             console.log("Error getting documents: ", error);
-//         });
 // }
