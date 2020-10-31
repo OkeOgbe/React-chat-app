@@ -4,7 +4,6 @@ import login_alt_img from "../../images/Mobile login-bro.svg";
 import {loginUser} from '../../Redux/actions/Authactions';
 import {connect} from 'react-redux';
 import fire from '../../Redux/fbConfig/fbConfig';
-import swal from "sweetalert";
 
 const Login = (props) => {
 

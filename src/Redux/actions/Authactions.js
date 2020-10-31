@@ -1,11 +1,8 @@
 import {
     SIGNUP_SUCCESS,
     LOGIN_SUCCESS,
-    LOGOUT_SUCCESS,
     FORGOT_PASSWORD,
-    GET_USERS,
     SEND_MESSAGE,
-    GET_MESSAGES
 } from './types';
 import swal from 'sweetalert';
 import fire from '../fbConfig/fbConfig';

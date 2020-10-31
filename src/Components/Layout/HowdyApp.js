@@ -1,11 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Redirect} from 'react-router-dom'
 import fire, {db} from '../../Redux/fbConfig/fbConfig';
-import swal from "sweetalert";
-import {logOut, sendMessage} from '../../Redux/actions/Authactions';
 import {connect} from "react-redux";
 import Nav from "./Nav";
-import messageCard from "./messageCard";
 
 //sign out
 
@@ -34,17 +31,17 @@ const HowdyApp = (props) => {
             })
     }, [])
 
-    const SignOut = () => {
-        fire
-            .auth()
-            .signOut()
-            .then((user => {
-                swal({title: "See you later", text: "You have been logged out!", icon: "success"})
-            }))
-            .catch((err => {
-                swal({title: "Sorry, Couldnt Log out", text: "Unforetunately, you havent been logged out", icon: "error"})
-            }));
-    }
+    // const SignOut = () => {
+    //     fire
+    //         .auth()
+    //         .signOut()
+    //         .then((user => {
+    //             swal({title: "See you later", text: "You have been logged out!", icon: "success"})
+    //         }))
+    //         .catch((err => {
+    //             swal({title: "Sorry, Couldnt Log out", text: "Unforetunately, you havent been logged out", icon: "error"})
+    //         }));
+    // }
 
     if (!fire.auth().currentUser) {
         return <Redirect to="/login"/>
@@ -68,18 +65,17 @@ const HowdyApp = (props) => {
             console.log("Error getting documents: ", error);
         });
 
-    const {username, email, name} = currentUserData;
+    const {username} = currentUserData;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        {
+
             input !== "" && 
             db.collection("messages").add({
                 username: username,
                 message: input,
                 time: fire.firestore.FieldValue.serverTimestamp()
             });
-        }
 
         //Clear the state
         setInput("");

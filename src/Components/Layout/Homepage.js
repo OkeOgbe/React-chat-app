@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link} from 'react-router-dom';
 import hero_img from "../../images/Group Chat-pana.svg";
-import animate from 'animate.css';
 
 const Homepage = () => {
     return (

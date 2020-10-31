@@ -2,6 +2,5 @@ export const  SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const FORGOT_PASSWORD = "FORGOT_PASSWORD"; 
-export const GET_USERS = "GET_USERS";
 export const SEND_MESSAGE = "SEND_MESSAGE";
 export const GET_MESSAGES = "GET_MESSAGES";

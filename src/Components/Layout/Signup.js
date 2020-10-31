@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import {Link, Redirect} from 'react-router-dom';
 import login_img from "../../images/Mobile login-pana.svg";
 import fire from '../../Redux/fbConfig/fbConfig';
-import swal from "sweetalert";
 import {createNewUser} from '../../Redux/actions/Authactions';
 import {connect} from "react-redux";
 

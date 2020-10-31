@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import fire from '../../Redux/fbConfig/fbConfig';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
-import swal from "sweetalert";
 import {forgotpass} from '../../Redux/actions/Authactions';
 
 class forgotPassword extends Component {
