@@ -1,4 +1,4 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from "redux-thunk";
 import "firebase/auth";
 import "firebase/firestore";
@@ -12,10 +12,7 @@ const rrfConfig = {
     useFirestoreForProfile: true
 }
 
-export const store = createStore( rootReducer, compose(
-    applyMiddleware(thunk), 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-) );
+export const store = createStore( rootReducer, applyMiddleware(thunk)  );
 
 export const rrfProps ={
     firebase,
