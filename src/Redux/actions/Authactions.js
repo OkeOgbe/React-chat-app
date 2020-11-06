@@ -2,7 +2,7 @@ import {
     SIGNUP_SUCCESS,
     LOGIN_SUCCESS,
     FORGOT_PASSWORD,
-    SEND_MESSAGE,
+    LOGOUT_SUCCESS
 } from './types';
 import swal from 'sweetalert';
 import fire from '../fbConfig/fbConfig';
@@ -54,29 +54,16 @@ export const forgotpass = (email) => dispatch => {
     dispatch({type: FORGOT_PASSWORD, payload: email})
 }
 
-export const sendMessage = (message) => dispatch => {
-    // Add a new document with a generated id.
-    db
-        .collection("cities")
-        .add(message)
-        .then(function (docRef) {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
-    dispatch({type: SEND_MESSAGE, payload: message})
-}
+export const LogOut = (user) => dispatch => {
+      fire
+            .auth()
+            .signOut()
+            .then((user => {
+                swal({title: "See you later", text: "You have been logged out!", icon: "success"})
+            }))
+            .catch((err => {
+                swal({title: "Sorry, Couldnt Log out", text: "Unforetunately, you havent been logged out", icon: "error"})
+            }));
 
-//get messages from firestore
-// export const getMessage = () => dispatch => {
-//     db
-//         .collection("messages")
-//         .get()
-//         .then((querySnapshot) => {
-//             querySnapshot
-//                 .forEach(function (doc) {
-//                     dispatch({type: GET_MESSAGES, payload: doc.data().message})
-//                 });
-//         })
-// }
+            dispatch({type: LOGOUT_SUCCESS, payload: user})
+}

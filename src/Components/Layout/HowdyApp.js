@@ -3,8 +3,9 @@ import {Redirect} from 'react-router-dom'
 import fire, {db} from '../../Redux/fbConfig/fbConfig';
 import {connect} from "react-redux";
 import Nav from "./Nav";
+import { LogOut } from "../../Redux/actions/Authactions";
 
-//sign out
+//sign out see if i can do a dropdown for account options
 
 const HowdyApp = (props) => {
 
@@ -30,18 +31,6 @@ const HowdyApp = (props) => {
                 setMessages(snapshot.docs.map(doc => doc.data()))
             })
     }, [])
-
-    // const SignOut = () => {
-    //     fire
-    //         .auth()
-    //         .signOut()
-    //         .then((user => {
-    //             swal({title: "See you later", text: "You have been logged out!", icon: "success"})
-    //         }))
-    //         .catch((err => {
-    //             swal({title: "Sorry, Couldnt Log out", text: "Unforetunately, you havent been logged out", icon: "error"})
-    //         }));
-    // }
 
     if (!fire.auth().currentUser) {
         return <Redirect to="/login"/>
@@ -70,15 +59,26 @@ const HowdyApp = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-            input !== "" && 
-            db.collection("messages").add({
+        input !== "" && db
+            .collection("messages")
+            .add({
                 username: username,
                 message: input,
-                time: fire.firestore.FieldValue.serverTimestamp()
+                time: fire
+                    .firestore
+                    .FieldValue
+                    .serverTimestamp()
             });
 
         //Clear the state
         setInput("");
+    }
+
+    //signout
+    const signOut = () =>{
+        const { signout } = props;
+
+        signout();
     }
 
     return (
@@ -92,6 +92,7 @@ const HowdyApp = (props) => {
                     </h2>
                     <p className="section__text">This is the default group chat. Please bear with us
                         as private messaging feature will be added later</p >
+                        <p className="logout_link" onClick={signOut}>Log Out</p>
                 </div>
 
                 <div className="messages_holder">
@@ -133,4 +134,8 @@ const HowdyApp = (props) => {
 
 const mapStateToProps = (state) => ({onlineMessages: state.auth.messages})
 
-export default connect(mapStateToProps, null)(HowdyApp);
+const mapDispatchToProps = (dispatch) => ({
+    signout: () => dispatch(LogOut())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HowdyApp);
